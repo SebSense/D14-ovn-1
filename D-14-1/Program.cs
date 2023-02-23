@@ -77,7 +77,7 @@ namespace D_14_1
             Tyskland.Print();
             sanMarino.Print();
 
-            //Array.ForEach(länder, land => land.Print());
+
 
             Land[] länder = new Land[7]
             {
@@ -89,6 +89,8 @@ namespace D_14_1
                 new Land("Tjeckien", "republik", "Prag", "10551219"),
                 new Land("Rumänien", "republik", "Bukarest", "19760314")
             };
+
+            Array.ForEach(länder, land => land.Print());
             
     }
 }
