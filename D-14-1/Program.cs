@@ -95,8 +95,12 @@ namespace D_14_1
             Array.ForEach(länder, land => land.Print());
 
             Console.WriteLine("");
-            foreach (Land land in länder) if (land.styre == "republik") Console.WriteLine(land.namn);
             
+            //foreach (Land land in länder) if (land.styre == "republik") Console.WriteLine(land.namn);
+            
+            int länderlength = länder.Length, i = -1;
+            while (++i < länderlength) if (länder[i].styre == "republik") Console.WriteLine(i + " " + länder[i].namn);
+
             Console.WriteLine("");
 
         }
