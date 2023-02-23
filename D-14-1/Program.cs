@@ -59,7 +59,7 @@ namespace D_14_1
             Console.Write($"Namn: {arne.förnamn} {arne.efternamn}\n\tTelefon: {arne.telefonnummer}\n\tAdress: {arne.adress}\n");
             Print(berith);
             caesar.Print();
-
+            Console.WriteLine("");
             Person[] people = new Person[3]
             {
                 new Person(){ förnamn = "David", efternamn = "A:sson", telefonnummer = "010-666 420 69", adress = "Hjälpgatan 1" },
@@ -73,6 +73,7 @@ namespace D_14_1
             Land Tyskland = new Land("Tyskland", "republik", "Berlin", "83783902");
             Land sanMarino = new Land("San Marino", "republik", "San Marino", "33600");
 
+            Console.WriteLine("");
             Sverige.Print();
             Tyskland.Print();
             sanMarino.Print();
@@ -85,12 +86,19 @@ namespace D_14_1
                 Tyskland,
                 sanMarino,
                 new Land("Danmark", "monarki", "Köpenhamn", "5928364"),
-                new Land("Italien", "repugblik", "Rom", "58853482"),
+                new Land("Italien", "republik", "Rom", "58853482"),
                 new Land("Tjeckien", "republik", "Prag", "10551219"),
                 new Land("Rumänien", "republik", "Bukarest", "19760314")
             };
 
+            Console.WriteLine("");
             Array.ForEach(länder, land => land.Print());
+
+            Console.WriteLine("");
+            foreach (Land land in länder) if (land.styre == "republik") Console.WriteLine(land.namn);
             
+            Console.WriteLine("");
+
+        }
     }
 }
