@@ -60,8 +60,8 @@ namespace D_14_1
             Print(berith);
             caesar.Print();
 
-            Person[] people = new Person[3] 
-            { 
+            Person[] people = new Person[3]
+            {
                 new Person(){ förnamn = "David", efternamn = "A:sson", telefonnummer = "010-666 420 69", adress = "Hjälpgatan 1" },
                 new Person("Echo", "Bravo", "010-721 118 714 226", "Revinge"),
                 new Person() {förnamn = "Foxtrot", efternamn = "Bravo", telefonnummer = "Fat Lady", adress = "Grozky Pomorskwij" }
@@ -69,14 +69,26 @@ namespace D_14_1
 
             foreach (Person person in people) { person.Print(); }
 
-            Land[] länder = new Land[3]
-            {
-                new Land("Sverige","monarki","Stockholm","10512820"),
-                new Land("Tyskland","republik","Berlin","83783902"),
-                new Land("San Marino","republik","San Marino", "33600")
-            };
+            Land Sverige = new Land("Sverige", "monarki", "Stockholm", "10512820");
+            Land Tyskland = new Land("Tyskland", "republik", "Berlin", "83783902");
+            Land sanMarino = new Land("San Marino", "republik", "San Marino", "33600");
 
-            Array.ForEach(länder, land => land.Print());
-        }
+            Sverige.Print();
+            Tyskland.Print();
+            sanMarino.Print();
+
+            //Array.ForEach(länder, land => land.Print());
+
+            Land[] länder = new Land[7]
+            {
+                Sverige,
+                Tyskland,
+                sanMarino,
+                new Land("Danmark", "monarki", "Köpenhamn", "5928364"),
+                new Land("Italien", "repugblik", "Rom", "58853482"),
+                new Land("Tjeckien", "republik", "Prag", "10551219"),
+                new Land("Rumänien", "republik", "Bukarest", "19760314")
+            };
+            
     }
 }
