@@ -40,6 +40,10 @@ namespace D_14_1
                 huvudstad = h;
                 invånare = i;
             }
+            public void Print()
+            {
+                Console.WriteLine($"{namn}\t{styre}\t{huvudstad}\t{invånare}");
+            }
         }
         public static void Print(Person p)
         {
@@ -71,6 +75,8 @@ namespace D_14_1
                 new Land("Tyskland","republik","Berlin","83783902"),
                 new Land("San Marino","republik","San Marino", "33600")
             };
+
+            Array.ForEach(länder, land => land.Print());
         }
     }
 }
