@@ -16,9 +16,9 @@ namespace D_14_1
             {
                 Console.Write($"Namn: {förnamn} {efternamn}\n\tTelefon: {telefonnummer}\n\tAdress: {adress}\n");
             }
-            public Person() 
+            public Person()
             {
-            
+
             }
             public Person(string fnamn, string enamn, string tnr, string adr)
             {
@@ -31,9 +31,10 @@ namespace D_14_1
         }
         public class Land
         {
-            public string namn, styre, huvudstad, invånare;
+            public string namn, styre, huvudstad;
+            public int invånare;
             public Land() { }
-            public Land(string n, string s, string h, string i)
+            public Land(string n, string s, string h, int i)
             {
                 namn = n;
                 styre = s;
@@ -69,9 +70,9 @@ namespace D_14_1
 
             foreach (Person person in people) { person.Print(); }
 
-            Land Sverige = new Land("Sverige", "monarki", "Stockholm", "10512820");
-            Land Tyskland = new Land("Tyskland", "republik", "Berlin", "83783902");
-            Land sanMarino = new Land("San Marino", "republik", "San Marino", "33600");
+            Land Sverige = new Land("Sverige", "monarki", "Stockholm", 10512820);
+            Land Tyskland = new Land("Tyskland", "republik", "Berlin", 83783902);
+            Land sanMarino = new Land("San Marino", "republik", "San Marino", 33600);
 
             Console.WriteLine("");
             Sverige.Print();
@@ -85,23 +86,41 @@ namespace D_14_1
                 Sverige,
                 Tyskland,
                 sanMarino,
-                new Land("Danmark", "monarki", "Köpenhamn", "5928364"),
-                new Land("Italien", "republik", "Rom", "58853482"),
-                new Land("Tjeckien", "republik", "Prag", "10551219"),
-                new Land("Rumänien", "republik", "Bukarest", "19760314")
+                new Land("Danmark", "monarki", "Köpenhamn", 5928364),
+                new Land("Italien", "republik", "Rom", 58853482),
+                new Land("Tjeckien", "republik", "Prag", 10551219),
+                new Land("Rumänien", "republik", "Bukarest", 19760314)
             };
 
             Console.WriteLine("");
             Array.ForEach(länder, land => land.Print());
 
             Console.WriteLine("");
-            
+
             //foreach (Land land in länder) if (land.styre == "republik") Console.WriteLine(land.namn);
-            
+
             int länderlength = länder.Length, i = -1;
+
             while (++i < länderlength) if (länder[i].styre == "republik") Console.WriteLine(i + " " + länder[i].namn);
 
             Console.WriteLine("");
+
+            int minPop = Int32.MaxValue, maxPop = 0, minIndex = -1, maxIndex = -1;
+            for (i = 0; i < länderlength; i++)
+            {
+                if (länder[i].styre == "republik")
+                {
+                    int inv = länder[i].invånare;
+                    if (inv > maxPop) { maxPop = inv; maxIndex = i; }
+                    if (inv < minPop) { minPop = inv; minIndex = i; }
+                }
+            }
+            if (minIndex != -1) {
+                Console.WriteLine("\n======   Republik med minsta invånarantal   ======");
+                länder[minIndex].Print(); }
+            if (maxIndex != -1) { 
+                Console.WriteLine("\n======   Republik med största invånarantal   ======");
+                länder[maxIndex].Print(); }
 
         }
     }
